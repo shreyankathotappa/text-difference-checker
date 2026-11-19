@@ -10,3 +10,6 @@ A Python Flask web application that compares two text inputs and identifies diff
 
 ## Live Application
 https://text-difference-checker.onrender.com
+
+## Deployment
+Application uses GitHub Actions for automated testing and Docker image publishing, followed by Render deployment after CI checks pass.
