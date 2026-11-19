@@ -1,4 +1,3 @@
-
 import unittest
 from app import app, compare_text
 
@@ -23,7 +22,7 @@ class TestTextDifferenceChecker(unittest.TestCase):
 
     def test_health(self):
         response = self.client.get("/health")
-        self.assertEqual(response.status_code, 500)
+        self.assertEqual(response.status_code, 200)
 
     def test_compare_api(self):
         response = self.client.post("/compare", json={
