@@ -1,5 +1,4 @@
 name: Python CI Pipeline
-
 on:
   push:
     branches: [main]
@@ -30,8 +29,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: $&#123;&#123; secrets.DOCKERHUB_USERNAME &#125;&#125;
-          password: $&#123;&#123; secrets.DOCKERHUB_TOKEN &#125;&#125;
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -40,4 +39,4 @@ jobs:
           push: true
           tags: |
             shreyankathotappashetty1997/text-difference-checker:latest
-            shreyankathotappashetty1997/text-difference-checker:$&#123;&#123; github.sha &#125;&#125;
+            shreyankathotappashetty1997/text-difference-checker:${{ github.sha }}
