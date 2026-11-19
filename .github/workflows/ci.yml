@@ -1,4 +1,6 @@
+
 name: Python CI Pipeline
+
 on:
   push:
     branches: [main]
@@ -40,3 +42,13 @@ jobs:
           tags: |
             shreyankathotappashetty1997/text-difference-checker:latest
             shreyankathotappashetty1997/text-difference-checker:${{ github.sha }}
+
+      - name: Trigger Render deployment
+        env:
+          RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+        run: |
+          curl --fail --show-error --silent \
+            --retry 3 \
+            --retry-delay 5 \
+            --request POST \
+            "$RENDER_DEPLOY_HOOK"
